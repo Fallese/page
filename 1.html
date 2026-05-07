@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kućni red škole - Početna</title>
+    <link rel="stylesheet" href="Styles.css">
+</head>
+<body>
+    <nav class="hamburger-nav">
+        <div class="hamburger" onclick="toggleNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="Untitled-1.html" class="nav-link active">Početna</a></li>
+            <li><a href="1.html" class="nav-link">I. Pravila ponašanja</a></li>
+            <li><a href="odnosi-ucenika.html" class="nav-link">II. Odnosi učenika</a></li>
+            <li><a href="odnosi-radnika.html" class="nav-link">III. Odnosi s radnicima</a></li>
+            <li><a href="radno-vrijeme.html" class="nav-link">IV. Radno vrijeme</a></li>
+            <li><a href="sigurnost.html" class="nav-link">V. Sigurnost</a></li>
+            <li><a href="skolska-imovina.html" class="nav-link">VI. Školska imovina</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header>
+            <h1>KUĆNI RED ŠKOLE</h1>
+            <p>TŠRB točka 9</p>
+            <p class="section-title">I. PRAVILA I OBVEZE PONAŠANJA U UNUTARNJEM I VANJSKOM PROSTORU ŠKOLE</p>
+        </header>
+
+        <section class="hero">
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800" alt="Školski ulaz" class="hero-image">
+        </section>
+
+        <!-- Članak 4 -->
+        <section class="section">
+            <h2>Članak 4. - Ulazak i izlazak iz Škole</h2>
+            <div class="clanak">
+                <p>Učenici, radnici i stranke mogu boraviti u unutarnjem i vanjskom prostoru Škole samo za vrijeme radnog vremena Škole.</p>
+                
+                <div class="quote">
+                    <strong>Važno:</strong> Ulazna vrata glavnog ulaza u pravilu se zaključavaju te se provodi kontrola i evidencija ulazaka u Školu.
+                </div>
+                
+                <p>U Školu se ulazi/izlazi kroz glavni ulaz, a isti je otključan 30 minuta prije početka nastave i 15 minuta nakon završetka nastave te za vrijeme velikog odmora.</p>
+                
+                <div class="komentar">
+                    <strong>Komentar:</strong> Stranke u pravilu ulaze u Školu uz prethodnu pravovremenu najavu. Radnik na porti provjerava identitet uvidom u osobnu iskaznicu.
+                </div>
+            </div>
+        </section>
+
+        <!-- Članak 5 -->
+        <section class="section">
+            <h2>Članak 5. - Zabranjeno ponašanje</h2>
+            <div class="clanak">
+                <p>U Školi je zabranjeno:</p>
+                <ul>
+                    <li>unošenje oružja i predmeta koji mogu ugroziti život ili zdravlje</li>
+                    <li>konzumiranje duhanskih proizvoda, alkohola i nedopuštenih supstanci</li>
+                    <li>nasilno ponašanje i govor mržnje</li>
+                    <li>krađa i uništavanje imovine</li>
+                    <li>snimanje bez odobrenja i objavljivanje materijala koji povređuju dostojanstvo</li>
+                </ul>
+                
+                <div class="quote">
+                    Sve stranke moraju biti upućene na dogovoreno mjesto i ispraćene iz Škole.
+                </div>
+            </div>
+        </section>
+
+        <!-- Članak 8 -->
+        <section class="section">
+            <h2>Članak 8. - Obveze učenika</h2>
+            <div class="clanak">
+                <p>Učenik je dužan:</p>
+                <ul>
+                    <li>dati prednost osobama s invaliditetom, starijim osobama i trudnicama</li>
+                    <li>odložiti odjevne predmete na za to određeno mjesto</li>
+                    <li>uvažavati i poštovati drugoga te stvarati ugodno okružje</li>
+                    <li>održavati čistim unutarnji i vanjski prostor Škole</li>
+                    <li>dolaziti uredno i primjereno odjeven</li>
+                </ul>
+                
+                <div class="komentar">
+                    <strong>Obrazloženje:</strong> Primjeren odijel uređuje razrednik uzimajući u obzir sigurnost i kulturu ponašanja.
+                </div>
+            </div>
+        </section>
+
+        <!-- Članak 9 -->
+        <section class="section">
+            <h2>Članak 9. - Priprema za nastavu</h2>
+            <div class="clanak">
+                <p>Oglašavanjem zvona za početak svakog nastavnog sata, učenik je obvezan biti na svom mjestu i pripremati se za nastavu.</p>
+                <p>Do dolaska nastavnika na sat, vrata učionice trebaju biti zatvorena.</p>
+                <p>Na nastavu u laboratorijima i radionicama, učenik ulazi uz nazočnost nastavnika.</p>
+            </div>
+        </section>
+
+    <script>
+        function toggleNav() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Highlight aktivne stranice i zatvaranje navigacije
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                document.getElementById('navMenu').classList.remove('active');
+                
+                // Preusmjeri na odgovarajuću stranicu
+                if (this.getAttribute('href') !== 'index.html') {
+                    window.location.href = this.getAttribute('href');
+                }
+            });
+        });
+
+        // Zatvori navigaciju klikom izvan nje
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('.hamburger-nav');
+            const menu = document.querySelector('.nav-menu');
+            if (!nav.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

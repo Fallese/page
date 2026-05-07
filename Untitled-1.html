@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kućni red škole - Početna</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="hamburger-nav">
+        <div class="hamburger" onclick="toggleNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="1.html" class="nav-link active">I. Pravila ponašanja</a></li>
+            <li><a href="odnosi-ucenika.html" class="nav-link">II. Odnosi učenika</a></li>
+            <li><a href="odnosi-radnika.html" class="nav-link">III. Odnosi s radnicima</a></li>
+            <li><a href="radno-vrijeme.html" class="nav-link">IV. Radno vrijeme</a></li>
+            <li><a href="sigurnost.html" class="nav-link">V. Sigurnost</a></li>
+            <li><a href="skolska-imovina.html" class="nav-link">VI. Školska imovina</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header>
+            <h1>KUĆNI RED ŠKOLE</h1>
+            <p>TŠRB točka 9</p>
+        </header>
+
+        <section class="intro">
+            <h2>Dobrodošli</h2>
+            <p>Ovaj Kućni red uređuje ponašanje i odnose unutar školskih prostora te obveze svih sudionika odgojno-obrazovnog procesa.</p>
+        </section>
+    </main>
+
+    <script>
+        function toggleNav() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Highlight aktivne stranice
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
+
+
